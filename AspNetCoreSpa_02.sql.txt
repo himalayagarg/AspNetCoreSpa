@@ -1,0 +1,142 @@
+USE [AspNetCoreSpa_02];
+
+--REB:
+--PRAGMA foreign_keys=OFF;
+
+BEGIN TRANSACTION;
+CREATE TABLE __EFMigrationsHistory (    "MigrationId" nvarchar(150) NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,    "ProductVersion" nvarchar(150) NOT NULL);
+
+INSERT INTO __EFMigrationsHistory VALUES('20170315161102_Initial','1.1.1');
+
+CREATE TABLE AspNetRoles (    "Id" INTEGER IDENTITY(1,1) PRIMARY KEY,    "ConcurrencyStamp" nvarchar(150),    "Description" nvarchar(150),    "Name" nvarchar(150),    "NormalizedName" nvarchar(150));
+
+--REB:
+SET IDENTITY_INSERT AspNetRoles ON
+
+INSERT INTO AspNetRoles  (Id, ConcurrencyStamp, Description, Name, NormalizedName) VALUES(1,'1b1389ae-6423-4ac1-a64e-aedcee0aaecb','Full rights role','Admin','ADMIN');
+INSERT INTO AspNetRoles  (Id, ConcurrencyStamp, Description, Name, NormalizedName) VALUES(2,'9945042b-3360-4533-9e12-677ca4f471e0','Limited rights role','User','USER');
+
+--REB:
+SET IDENTITY_INSERT AspNetRoles OFF
+
+CREATE TABLE "AspNetUsers" (    "Id" INTEGER IDENTITY(1,1) PRIMARY KEY,    "AccessFailedCount" INTEGER NOT NULL,    "ConcurrencyStamp" nvarchar(150),    "CreatedDate" DateTime2 NOT NULL,    "Email" nvarchar(150),    "EmailConfirmed" bit NOT NULL,    "FirstName" nvarchar(150),    "IsEnabled" bit NOT NULL,    "LastName" nvarchar(150),    "LockoutEnabled" bit NOT NULL,    "LockoutEnd" nvarchar(150),    "NormalizedEmail" nvarchar(150),    "NormalizedUserName" nvarchar(150),    "PasswordHash" nvarchar(150),    "PhoneNumber" nvarchar(150),    "PhoneNumberConfirmed" bit NOT NULL,    "SecurityStamp" nvarchar(150),    "TwoFactorEnabled" bit NOT NULL,    "UserName" nvarchar(150));
+
+--REB:
+SET IDENTITY_INSERT AspNetUsers ON
+
+INSERT INTO AspNetUsers (Id, AccessFailedCount, ConcurrencyStamp, CreatedDate, Email, EmailConfirmed, FirstName, IsEnabled, LastName, LockoutEnabled, LockoutEnd, NormalizedEmail, NormalizedUserName, PasswordHash, PhoneNumber, PhoneNumberConfirmed, SecurityStamp, TwoFactorEnabled, UserName) VALUES(1,0,'865445ea-b820-41c6-83f1-419eed9d6412','20120618 10:34:09 AM','admin@admin.com',1,'Admin first',1,'Admin last',1,NULL,'ADMIN@ADMIN.COM','ADMIN@ADMIN.COM','AQAAAAEAACcQAAAAECfT1yZHs1eQVG1J9Eb/loheekvCKqZP/aSQW1VQYQs8aBHUmZ3uiu7mh864EBrcjg==',NULL,0,'3165bf23-537f-49f5-838a-5f67dac29ee3',0,'admin@admin.com');
+INSERT INTO AspNetUsers (Id, AccessFailedCount, ConcurrencyStamp, CreatedDate, Email, EmailConfirmed, FirstName, IsEnabled, LastName, LockoutEnabled, LockoutEnd, NormalizedEmail, NormalizedUserName, PasswordHash, PhoneNumber, PhoneNumberConfirmed, SecurityStamp, TwoFactorEnabled, UserName) VALUES(2,0,'5dd348dc-d587-400f-9171-e5ec2451464b','20120618 10:34:09 AM','user@user.com',1,'First',1,'Last',1,NULL,'USER@USER.COM','USER@USER.COM','AQAAAAEAACcQAAAAEKXtyWujHNJIgfwf3EqgVXN95OEfbOOO+BvVJLfhZTkq9/dhpZOtX9GbHyW+HgkdmA==',NULL,0,'dbdb7083-dc5b-4e72-b9d2-9a36eec411d2',0,'user@user.com');
+INSERT INTO AspNetUsers (Id, AccessFailedCount, ConcurrencyStamp, CreatedDate, Email, EmailConfirmed, FirstName, IsEnabled, LastName, LockoutEnabled, LockoutEnd, NormalizedEmail, NormalizedUserName, PasswordHash, PhoneNumber, PhoneNumberConfirmed, SecurityStamp, TwoFactorEnabled, UserName) VALUES(3,0,'5d4174fe-2aa7-4957-afbe-76a64a8fa659','20120618 10:34:09 AM','knowledgeshaper@gmail.com',0,'Richard',0,'Bryant',1,NULL,'KNOWLEDGESHAPER@GMAIL.COM','KNOWLEDGESHAPER@GMAIL.COM','AQAAAAEAACcQAAAAEAPJuEAWgMacgfERm+LEHp1DkmP6BR/xINmT2XTEbQxxIjn0LdLF4/uugIZAdkbKvg==',NULL,0,'3b222266-c5da-4156-ae9e-dfcdbf16da7f',0,'knowledgeshaper@gmail.com');
+INSERT INTO AspNetUsers (Id, AccessFailedCount, ConcurrencyStamp, CreatedDate, Email, EmailConfirmed, FirstName, IsEnabled, LastName, LockoutEnabled, LockoutEnd, NormalizedEmail, NormalizedUserName, PasswordHash, PhoneNumber, PhoneNumberConfirmed, SecurityStamp, TwoFactorEnabled, UserName) VALUES(4,0,'9af4a165-a4b2-449b-bce0-238526521d6a','20120618 10:34:09 AM','ghalleck@gmail.com',0,'Gurney',0,'Halleck',1,NULL,'GHALLECK@GMAIL.COM','GHALLECK@GMAIL.COM','AQAAAAEAACcQAAAAED0F3v1C0bYh532ckOKP/TWrBsr1SZPNBnU7ZvFpBC8ALntDZ4AjA+lDsXXWMzOxaA==',NULL,0,'b04fbfaa-bdc9-4640-8bee-06e51652c578',0,'ghalleck@gmail.com');
+
+--REB:
+SET IDENTITY_INSERT AspNetUsers OFF
+
+CREATE TABLE "Content" (    "Id" INTEGER IDENTITY(1,1) PRIMARY KEY,    "Key" nvarchar(150) NOT NULL);
+
+--REB:
+SET IDENTITY_INSERT Content ON
+
+INSERT INTO Content (Id, [Key]) VALUES(1,'TITLE');
+INSERT INTO Content (Id, [Key]) VALUES(2,'APP_NAV_HOME');
+INSERT INTO Content (Id, [Key]) VALUES(3,'APP_NAV_EXAMPLES');
+INSERT INTO Content (Id, [Key]) VALUES(4,'APP_NAV_LOGIN');
+INSERT INTO Content (Id, [Key]) VALUES(5,'APP_NAV_LOGOUT');
+INSERT INTO Content (Id, [Key]) VALUES(6,'APP_NAV_REGISTER');
+INSERT INTO Content (Id, [Key]) VALUES(7,'APP_NAV_ADMIN');
+
+--REB:
+SET IDENTITY_INSERT Content OFF
+
+CREATE TABLE "Languages" (    "Id" INTEGER IDENTITY(1,1) PRIMARY KEY,    "Description" nvarchar(150),    "Locale" nvarchar(150) NOT NULL);
+
+--REB:
+SET IDENTITY_INSERT Languages ON
+
+INSERT INTO Languages (Id, Description, Locale) VALUES(1,'English','en');
+INSERT INTO Languages (Id, Description, Locale) VALUES(2,'Frensh','fr');
+
+--REB:
+SET IDENTITY_INSERT Languages OFF
+
+CREATE TABLE "AspNetUserTokens" (    "Id" INTEGER IDENTITY(1,1) PRIMARY KEY,    "UserId" INTEGER NOT NULL,    "LoginProvider" nvarchar(150) NOT NULL,    "Name" nvarchar(150) NOT NULL,    "Value" nvarchar(150),);
+
+CREATE TABLE "OpenIddictApplications" (    "Id" INTEGER NOT NULL CONSTRAINT "PK_OpenIddictApplications" PRIMARY KEY,    "ClientId" nvarchar(150),    "ClientSecret" nvarchar(150),    "DisplayName" nvarchar(150),    "LogoutRedirectUri" nvarchar(150),    "RedirectUri" nvarchar(150),    "Type" nvarchar(150));
+
+CREATE TABLE "OpenIddictScopes" (    "Id" nvarchar(150) NOT NULL CONSTRAINT "PK_OpenIddictScopes" PRIMARY KEY,    "Description" nvarchar(150));
+
+CREATE TABLE "AspNetRoleClaims" (    "Id" INTEGER IDENTITY(1,1) PRIMARY KEY,    "ClaimType" nvarchar(150),    "ClaimValue" nvarchar(150),    "RoleId" INTEGER NOT NULL,    CONSTRAINT "FK_AspNetRoleClaims_AspNetRoles_RoleId" FOREIGN KEY ("RoleId") REFERENCES "AspNetRoles" ("Id") ON DELETE CASCADE);
+
+CREATE TABLE "AspNetUserClaims" (    "Id" INTEGER IDENTITY(1,1) PRIMARY KEY,    "ClaimType" nvarchar(150),    "ClaimValue" nvarchar(150),    "UserId" INTEGER NOT NULL,    CONSTRAINT "FK_AspNetUserClaims_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE CASCADE);
+
+CREATE TABLE "AspNetUserLogins" (    "LoginProvider" nvarchar(150) NOT NULL,    "ProviderKey" nvarchar(150) NOT NULL,    "ProviderDisplayName" nvarchar(150),    "UserId" INTEGER NOT NULL,    CONSTRAINT "PK_AspNetUserLogins" PRIMARY KEY ("LoginProvider", "ProviderKey"),    CONSTRAINT "FK_AspNetUserLogins_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE CASCADE);
+
+CREATE TABLE "AspNetUserRoles" (    "UserId" INTEGER NOT NULL,    "RoleId" INTEGER NOT NULL,    CONSTRAINT "PK_AspNetUserRoles" PRIMARY KEY ("UserId", "RoleId"),    CONSTRAINT "FK_AspNetUserRoles_AspNetRoles_RoleId" FOREIGN KEY ("RoleId") REFERENCES "AspNetRoles" ("Id") ON DELETE CASCADE,    CONSTRAINT "FK_AspNetUserRoles_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE CASCADE);
+
+INSERT INTO AspNetUserRoles VALUES(1,1);
+INSERT INTO AspNetUserRoles VALUES(2,2);
+INSERT INTO AspNetUserRoles VALUES(3,2);
+INSERT INTO AspNetUserRoles VALUES(4,2);
+
+
+CREATE TABLE "ContentText" (    "Id" INTEGER IDENTITY(1,1) PRIMARY KEY,    "ContentId" INTEGER NOT NULL,    "LanguageId" INTEGER NOT NULL,    "Text" nvarchar(150) NOT NULL,	CONSTRAINT FK_ContentText_Content_ContentId FOREIGN KEY (ContentId) REFERENCES Content (Id) ON DELETE CASCADE,    
+	CONSTRAINT FK_ContentText_Languages_LanguageId FOREIGN KEY (LanguageId) REFERENCES Languages (Id) ON DELETE CASCADE);
+
+--REB:
+SET IDENTITY_INSERT ContentText ON
+
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(1,1,1,'Site title');
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(2,1,2,'Titre du site');
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(3,2,1,'Home');
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(4,2,2,'Accueil');
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(5,3,1,'Examples');
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(6,3,2,'Exemples');
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(7,4,1,'Login');
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(8,4,2,'S''identifier');
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(9,5,1,'Logout');
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(10,5,2,'Connectez - Out');
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(11,6,1,'Register');
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(12,6,2,'registre');
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(13,7,1,'Admin');
+INSERT INTO ContentText (Id, ContentId, LanguageId, Text) VALUES(14,7,2,'Admin');
+
+--REB:
+SET IDENTITY_INSERT ContentText OFF
+
+CREATE TABLE "OpenIddictAuthorizations" (    "Id" INTEGER NOT NULL CONSTRAINT "PK_OpenIddictAuthorizations" PRIMARY KEY,    "ApplicationId" INTEGER,    "Scope" nvarchar(150),    "Subject" nvarchar(150),    CONSTRAINT "FK_OpenIddictAuthorizations_OpenIddictApplications_ApplicationId" FOREIGN KEY ("ApplicationId") REFERENCES "OpenIddictApplications" ("Id"));
+
+CREATE TABLE "OpenIddictTokens" (    "Id" nvarchar(450) NOT NULL CONSTRAINT "PK_OpenIddictTokens" PRIMARY KEY,    "ApplicationId" INTEGER,    "AuthorizationId" INTEGER,    "Subject" nvarchar(150),    "Type" nvarchar(150),    CONSTRAINT "FK_OpenIddictTokens_OpenIddictApplications_ApplicationId" FOREIGN KEY ("ApplicationId") REFERENCES "OpenIddictApplications" ("Id"),    CONSTRAINT "FK_OpenIddictTokens_OpenIddictAuthorizations_AuthorizationId" FOREIGN KEY ("AuthorizationId") REFERENCES "OpenIddictAuthorizations" ("Id"));
+
+INSERT INTO OpenIddictTokens VALUES('8000077b-45a6-49be-adbd-1284615b9133',NULL,NULL,'3','refresh_token');
+INSERT INTO OpenIddictTokens VALUES('9a8449de-1d8f-46de-ba67-3b8031b23a89',NULL,NULL,'3','refresh_token');
+
+--REB:
+CREATE TABLE "sqlite_sequence" (    "Id" nvarchar(150) NOT NULL CONSTRAINT "PK_sqlite_sequence" PRIMARY KEY,    "Count" INTEGER
+);
+
+DELETE FROM sqlite_sequence;
+INSERT INTO sqlite_sequence VALUES('AspNetRoles',2);
+INSERT INTO sqlite_sequence VALUES('AspNetUsers',4);
+INSERT INTO sqlite_sequence VALUES('Languages',2);
+INSERT INTO sqlite_sequence VALUES('Content',7);
+INSERT INTO sqlite_sequence VALUES('ContentText',14);
+
+--REB:
+--CREATE UNIQUE INDEX "RoleNameIndex" ON "AspNetRoles" ("NormalizedName");
+--CREATE INDEX "EmailIndex" ON "AspNetUsers" ("NormalizedEmail");
+--CREATE UNIQUE INDEX "UserNameIndex" ON "AspNetUsers" ("NormalizedUserName");
+
+CREATE INDEX "IX_ContentText_ContentId" ON "ContentText" ("ContentId");
+CREATE INDEX "IX_ContentText_LanguageId" ON "ContentText" ("LanguageId");
+CREATE INDEX "IX_AspNetRoleClaims_RoleId" ON "AspNetRoleClaims" ("RoleId");
+CREATE INDEX "IX_AspNetUserClaims_UserId" ON "AspNetUserClaims" ("UserId");
+CREATE INDEX "IX_AspNetUserLogins_UserId" ON "AspNetUserLogins" ("UserId");
+CREATE INDEX "IX_AspNetUserRoles_RoleId" ON "AspNetUserRoles" ("RoleId");
+
+--REB:
+--CREATE UNIQUE INDEX "IX_OpenIddictApplications_ClientId" ON "OpenIddictApplications" ("ClientId");
+--CREATE INDEX "IX_OpenIddictAuthorizations_ApplicationId" ON "OpenIddictAuthorizations" ("ApplicationId");
+--CREATE INDEX "IX_OpenIddictTokens_ApplicationId" ON "OpenIddictTokens" ("ApplicationId");
+--CREATE INDEX "IX_OpenIddictTokens_AuthorizationId" ON "OpenIddictTokens" ("AuthorizationId");
+
+COMMIT;
